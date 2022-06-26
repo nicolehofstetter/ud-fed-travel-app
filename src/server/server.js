@@ -19,10 +19,24 @@ app.use(express.static('dist'));
 
 
 // Setup Server
-const port = 8081;
-
-const server = app.listen(port, listening);
-
-function listening() {
+app.listen(8081, function () {
     console.log('Server is running on port 8081');
-}
+});
+
+let lastTravelData = {};
+
+app.post('/api/travels/latest', function (req, res) {
+    let body = req.body;
+    lastTravelData = {
+        zip: body.zip,
+        startDate: body.startDate,
+        endDate: body.endDate
+    };
+    console.log(lastTravelData);
+    res.end();
+});
+
+app.get('/api/travels/latest', function (req, res) {
+
+    res.send(lastTravelData);
+});
