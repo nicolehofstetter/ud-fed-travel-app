@@ -1,0 +1,87 @@
+@font-face {
+  font-family: "Roboto-Regular";
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Italic";
+  src: url(../fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url(../fonts/Roboto-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Light";
+  src: url(../fonts/Roboto-Light.ttf);
+}
+
+@font-face {
+  font-family: "Roboto-Medium";
+  src: url(../fonts/Roboto-Medium.ttf);
+}
+
+h1 {
+  font-size: 3.75rem;
+  font-family: Roboto-Light;
+  margin: 2rem 0 2rem 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3rem;
+  font-family: Roboto-Light;
+}
+
+h3 {
+  font-size: 2rem;
+  font-family: Roboto-Regular;
+}
+
+p, a, button, span, label, input {
+  font-family: Roboto-Regular;
+  font-size: 1.5rem;
+
+}
+
+input {
+  font-family: Roboto-Regular;
+  font-size: 1rem;
+}
+
+b {
+  font-family: Roboto-Bold;
+}
+
+em {
+  font-family: Roboto-Italic;
+}
+
+
+@media (min-width: 900px) {
+  h1 {
+    font-size: 5.25rem;
+    margin: 3rem 0 3rem 0;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+    margin: 1rem 0 1rem 0;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    margin: 0.5rem 0 0.5rem 0;
+
+  }
+
+  p, a, button, span, label, input {
+    font-size: 1rem;
+    margin: 0.625rem 0 0.625rem 0;
+  }
+
+
+}

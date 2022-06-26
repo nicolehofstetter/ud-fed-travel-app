@@ -2,23 +2,28 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
+        <title>Travel App</title>
     </head>
 
     <body>
-
         <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
-            </div>
         </header>
+        <div id="content">
+            <h1>Travel App</h1>
 
+            <form id="travelDataForm">
+                <label for="zip">The next trip is here:</label>
+                <input type="text" id="zip" placeholder="Please enter the zip of your location">
+                <label for="travelStartDate">Departure:</label>
+                <input type="date" id="travelStartDate" placeholder="start date">
+                <label for="travelEndDate">Return date:</label>
+                <input type="date" id="travelEndDate" placeholder="end date">
+                <button type="submit" id="saveTravelData">Save next trip</button>
+            </form>
+        </div>
 
         <footer>
-            <p>This is a footer</p>
         </footer>
     </body>
 </html>
