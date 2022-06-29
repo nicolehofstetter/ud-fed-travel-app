@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1"/>
@@ -12,14 +12,20 @@
         <div id="content">
             <h1>Travel App</h1>
 
-            <form id="travelDataForm">
+            <div id="zipOutput"></div>
+            <div id="startOutput"></div>
+            <div id="endOutput"></div>
+
+            <form id="travelDataForm" onsubmit="return Client.saveNextTrip(event)">
                 <label for="zip">The next trip is here:</label>
                 <input type="text" id="zip" placeholder="Please enter the zip of your location">
                 <label for="travelStartDate">Departure:</label>
                 <input type="date" id="travelStartDate" placeholder="start date">
                 <label for="travelEndDate">Return date:</label>
                 <input type="date" id="travelEndDate" placeholder="end date">
-                <button type="submit" id="saveTravelData">Save next trip</button>
+                <input type="submit" id="saveTravelData" onsubmit="return Client.saveNextTrip(event)"
+                       onclick="return Client.saveNextTrip(event)">Save next trip
+                </input>
             </form>
         </div>
 
