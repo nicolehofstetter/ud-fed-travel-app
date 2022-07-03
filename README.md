@@ -12,10 +12,28 @@ This project contains a travel app.
 
 ## Installation
 
-You can start the project with:
+Start server:
 
+```bash
+npm start
 ```
-node server.js
+
+You can run the website in dev mode:
+
+```bash
+npm run dev
+```
+
+Build it for production:
+
+```bash
+npm run build
+```
+
+Test:
+
+```bash
+npm run test
 ```
 
 ## Dependencies
