@@ -1,5 +1,6 @@
 // Require Express to run server and routes
 const express = require('express');
+var fetch = require('node-fetch');
 
 // Start up an instance of app
 const app = express();
@@ -28,11 +29,26 @@ let lastTravelData = {};
 app.post('/api/travels/latest', function (req, res) {
     let body = req.body;
     lastTravelData = {
-        zip: body.zip,
+        longitude: body.longitude,
+        latitude: body.latitude,
+        country: body.country,
         startDate: body.startDate,
-        endDate: body.endDate
+        endDate: body.endDate,
+        temperature: 0,
+        city: body.city
     };
-    console.log(lastTravelData);
+
+    fetch('https://api.weatherbit.io/v2.0/current?lat='
+        + lastTravelData.latitude + '&lon='
+        + lastTravelData.longitude + '&key=2fe964d0766f4a13a50b57a1d18ef248')
+        .then((response) => {
+            return response.json();
+        }).then((responseData) => {
+            lastTravelData.temperature = responseData.data[0].temp;
+            console.log(lastTravelData);
+        }).catch(() => {
+            console.log('Could not post new data');
+        });
     res.end();
 });
 

@@ -6,23 +6,24 @@
         <title>Travel App</title>
     </head>
 
-    <body>
+    <body onload="Client.updateUiWithRecentData()">
         <header>
         </header>
         <div id="content">
             <h1>Travel App</h1>
 
-            <div id="zipOutput"></div>
+            <div id="cityOutput"></div>
             <div id="startOutput"></div>
             <div id="endOutput"></div>
+            <div id="temperatureOutput"></div>
 
             <form id="travelDataForm" onsubmit="return Client.saveNextTrip(event)">
-                <label for="zip">The next trip is here:</label>
-                <input type="text" id="zip" placeholder="Please enter the zip of your location">
+                <label for="city">The next trip is here:</label>
+                <input type="text" id="city" value="Ingolstadt"/>
                 <label for="travelStartDate">Departure:</label>
-                <input type="date" id="travelStartDate" placeholder="start date">
+                <input type="date" id="travelStartDate" value="2023-02-01"/>
                 <label for="travelEndDate">Return date:</label>
-                <input type="date" id="travelEndDate" placeholder="end date">
+                <input type="date" id="travelEndDate" value="2023-02-12"/>
                 <input type="submit" id="saveTravelData" onsubmit="return Client.saveNextTrip(event)"
                        onclick="return Client.saveNextTrip(event)">Save next trip
                 </input>
