@@ -11,15 +11,15 @@ $divider-color: #BDBDBD;
 
 
 body {
+  margin: 0;
   width: 100vw;
   height: 100vh;
   display: grid;
   grid-template-rows: 100px 1fr 70px;
-  grid-template-columns: 1fr 2fr 1fr;
   grid-template-areas:
-            "header header header"
-            "content content content"
-            "footer footer footer";
+            "header "
+            "content "
+            "footer ";
 }
 
 header {

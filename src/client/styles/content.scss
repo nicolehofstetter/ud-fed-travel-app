@@ -4,40 +4,40 @@
   align-items: center;
 }
 
+#tripInput {
+  width: 95vw;
+}
+
 #travelDataForm {
   display: flex;
   flex-direction: column;
   gap: 15px;
   margin-top: 25px;
-  margin-right: 10px;
-  margin-left: 10px;
   width: 80vw;
+
 }
 
 button {
   margin-top: 15px;
 }
 
-#nextTrip {
+#nextTripContainer {
   margin-top: 20px;
-  display: grid;
-  grid-template-columns: 60vw 20vw;
-  grid-template-rows: 1fr 3fr;
-  grid-template-areas:
-           "img headerinfo"
-           "img details"
+  background-color: #BBDEFB;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
 }
 
-#cityImage {
-  grid-area: img;
+#nextTrip {
+  width: 95vw;
+
 }
 
-#nextTrip h3 {
-  grid-area: headerinfo;
-}
-
-#travelDetails {
-  grid-area: details;
+#nextTrip div img {
+  width: 95vw;
+  height: auto;
 }
 
