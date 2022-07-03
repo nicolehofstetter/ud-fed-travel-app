@@ -1,6 +1,7 @@
-// Require Express to run server and routes
 const express = require('express');
-var fetch = require('node-fetch');
+const fetch = require('node-fetch');
+const dotenv = require('dotenv');
+dotenv.config();
 
 // Start up an instance of app
 const app = express();
@@ -26,6 +27,35 @@ app.listen(8081, function () {
 
 let lastTravelData = {};
 
+function getImageUrl() {
+    let apiKey = process.env.PIXABAY_API_KEY;
+    return fetch('https://pixabay.com/api/?key=' + apiKey + '&q=' + lastTravelData.city)
+        .then((response) => {
+            return response.json();
+        }).then((responseData) => {
+            return responseData.hits[0].webformatURL;
+
+        }).catch(() => {
+            console.log('Could not post new data');
+        });
+}
+
+function getTemperature() {
+    let apiKey = process.env.WEATHER_BIT_API_KEY;
+    return fetch('https://api.weatherbit.io/v2.0/current?lat='
+        + lastTravelData.latitude + '&lon='
+        + lastTravelData.longitude + '&key=' + apiKey)
+        .then((response) => {
+            return response.json();
+        }).then((responseData) => {
+            console.log(lastTravelData);
+            return responseData.data[0].temp;
+        }).catch(() => {
+            console.log('Could not post new data');
+        });
+}
+
+// Save requested data including current temperature
 app.post('/api/travels/latest', function (req, res) {
     let body = req.body;
     lastTravelData = {
@@ -38,35 +68,18 @@ app.post('/api/travels/latest', function (req, res) {
         imageUrl: '',
         city: body.city
     };
+    getTemperature().then((temp) => {
+        lastTravelData.temperature = temp;
+    });
 
-    fetch('https://api.weatherbit.io/v2.0/current?lat='
-        + lastTravelData.latitude + '&lon='
-        + lastTravelData.longitude + '&key=2fe964d0766f4a13a50b57a1d18ef248')
-        .then((response) => {
-            return response.json();
-        }).then((responseData) => {
-            lastTravelData.temperature = responseData.data[0].temp;
-            console.log(responseData.data[0]);
-            console.log(lastTravelData);
-        }).catch(() => {
-            console.log('Could not post new data');
-        });
+    getImageUrl().then((imageUrl) => {
+        lastTravelData.imageUrl = imageUrl;
+    });
+
     res.end();
 });
 
 app.get('/api/travels/latest', function (req, res) {
-    fetch('https://pixabay.com/api/?key=28287041-ec797974fc8b385c545365dc4&q=' + lastTravelData.city)
-        .then((response) => {
-            return response.json();
-        }).then((responseData) => {
-            lastTravelData.imageUrl = responseData.hits[0].webformatURL;
-
-            console.log('response');
-            console.log(lastTravelData);
-            res.send(lastTravelData);
-        }).catch(() => {
-            console.log('Could not post new data');
-        });
-
+    res.send(lastTravelData);
 });
 

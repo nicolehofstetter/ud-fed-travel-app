@@ -1,4 +1,4 @@
-async function getCoordinatesByCity() {
+async function getCoordinatesByCity(city) {
     const username = 'nicolehof';
     let url = 'http://api.geonames.org/searchJSON?username=' + username + '&formatted=true&q=' + city;
     const response = await fetch(url);
