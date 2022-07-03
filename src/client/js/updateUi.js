@@ -31,4 +31,4 @@ async function updateUiWithRecentData() {
     }
 }
 
-export {updateUiWithRecentData};
+export {updateUiWithRecentData, calculateDaysBetweenTwoDays};
