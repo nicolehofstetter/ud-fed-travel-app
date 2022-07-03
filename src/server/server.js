@@ -35,6 +35,7 @@ app.post('/api/travels/latest', function (req, res) {
         startDate: body.startDate,
         endDate: body.endDate,
         temperature: 0,
+        imageUrl: '',
         city: body.city
     };
 
@@ -45,6 +46,7 @@ app.post('/api/travels/latest', function (req, res) {
             return response.json();
         }).then((responseData) => {
             lastTravelData.temperature = responseData.data[0].temp;
+            console.log(responseData.data[0]);
             console.log(lastTravelData);
         }).catch(() => {
             console.log('Could not post new data');
@@ -53,6 +55,18 @@ app.post('/api/travels/latest', function (req, res) {
 });
 
 app.get('/api/travels/latest', function (req, res) {
+    fetch('https://pixabay.com/api/?key=28287041-ec797974fc8b385c545365dc4&q=' + lastTravelData.city)
+        .then((response) => {
+            return response.json();
+        }).then((responseData) => {
+            lastTravelData.imageUrl = responseData.hits[0].webformatURL;
 
-    res.send(lastTravelData);
+            console.log('response');
+            console.log(lastTravelData);
+            res.send(lastTravelData);
+        }).catch(() => {
+            console.log('Could not post new data');
+        });
+
 });
+

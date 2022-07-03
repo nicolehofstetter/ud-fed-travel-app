@@ -47,10 +47,17 @@ const updateUiWithRecentData = async () => {
     const response = await fetch('http://localhost:8081/api/travels/latest');
     try {
         const latestTravelEntry = await response.json();
+        console.log(latestTravelEntry);
         document.getElementById('cityOutput').innerHTML = latestTravelEntry.city;
         document.getElementById('startOutput').innerHTML = latestTravelEntry.startDate;
         document.getElementById('endOutput').innerHTML = latestTravelEntry.endDate;
         document.getElementById('temperatureOutput').innerHTML = latestTravelEntry.temperature;
+
+        const corsImageModified = new Image();
+        corsImageModified.crossOrigin = 'Anonymous';
+        corsImageModified.src = latestTravelEntry.imageUrl + '?not-from-cache-please';
+        document.getElementById('cityImage').append(corsImageModified);
+
     } catch (error) {
         console.log('Can not retrieve current user response', error);
     }
