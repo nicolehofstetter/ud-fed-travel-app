@@ -11,26 +11,38 @@
         </header>
         <div id="content">
             <h1>Travel App</h1>
+            <h2> Please enter the data of your next trip</h2>
+            <section>
 
-            <div id="cityOutput"></div>
-            <div id="startOutput"></div>
-            <div id="endOutput"></div>
-            <div id="temperatureOutput"></div>
-            <div id="travelLength"></div>
-            <div id="countDown"></div>
-            <div id="cityImage"></div>
+                <form id="travelDataForm" onsubmit="return Client.saveNextTrip(event)">
+                    <label for="city">The next trip is here:</label>
+                    <input type="text" id="city" value="Ingolstadt"/>
+                    <label for="travelStartDate">Departure:</label>
+                    <input type="date" id="travelStartDate" value="2023-02-01"/>
+                    <label for="travelEndDate">Return date:</label>
+                    <input type="date" id="travelEndDate" value="2023-02-12"/>
+                    <input type="submit" id="saveTravelData" onsubmit="return Client.saveNextTrip(event)"
+                           onclick="return Client.saveNextTrip(event)" value="Save next trip!"/>
+                </form>
+            </section>
 
-            <form id="travelDataForm" onsubmit="return Client.saveNextTrip(event)">
-                <label for="city">The next trip is here:</label>
-                <input type="text" id="city" value="Ingolstadt"/>
-                <label for="travelStartDate">Departure:</label>
-                <input type="date" id="travelStartDate" value="2023-02-01"/>
-                <label for="travelEndDate">Return date:</label>
-                <input type="date" id="travelEndDate" value="2023-02-12"/>
-                <input type="submit" id="saveTravelData" onsubmit="return Client.saveNextTrip(event)"
-                       onclick="return Client.saveNextTrip(event)">Save next trip
-                </input>
-            </form>
+            <h2>Your next Trip:</h2>
+            <section id="nextTrip">
+                <div id="cityImage"></div>
+                <h3><span id="cityOutput"></span>, <span id="country"></span> is
+                    <span id="countDown"></span> days away
+                </h3>
+
+                <div id="travelDetails">
+                    <p>Your trip starts at <span id="startOutput"></span>
+                        and ends at: <span id="endOutput"></span>
+                    </p>
+                    <p>
+                        Enjoy <span id="travelLength"> </span> days of vacation :)
+                    </p>
+                    <p>Temperature: <span id="temperatureOutput"></span></p>
+                </div>
+            </section>
         </div>
 
         <footer>

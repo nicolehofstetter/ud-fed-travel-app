@@ -10,6 +10,7 @@ async function updateUiWithRecentData() {
     try {
         const lastTravelDate = await response.json();
         document.getElementById('cityOutput').innerHTML = lastTravelDate.city;
+        document.getElementById('country').innerHTML = lastTravelDate.country;
         document.getElementById('startOutput').innerHTML = lastTravelDate.startDate;
         document.getElementById('endOutput').innerHTML = lastTravelDate.endDate;
         document.getElementById('temperatureOutput').innerHTML = lastTravelDate.temperature;
