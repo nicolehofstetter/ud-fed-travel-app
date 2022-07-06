@@ -70,13 +70,12 @@ app.post('/api/travels/latest', function (req, res) {
     };
     getTemperature().then((temp) => {
         lastTravelData.temperature = temp;
-    });
-
-    getImageUrl().then((imageUrl) => {
+    }).then(() => {
+        return getImageUrl();
+    }).then((imageUrl) => {
         lastTravelData.imageUrl = imageUrl;
+        res.end();
     });
-
-    res.end();
 });
 
 app.get('/api/travels/latest', function (req, res) {

@@ -1,3 +1,5 @@
+import {updateUiWithRecentData} from './updateUi';
+
 async function getCoordinatesByCity(city) {
     const username = 'nicolehof';
     let url = 'http://api.geonames.org/searchJSON?username=' + username + '&formatted=true&q=' + city;
@@ -35,8 +37,9 @@ async function saveNextTrip(event) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(coordinates)
-    }).then((responseData) => {
-        console.log(responseData);
+    }).then(async (response) => {
+        console.log(response);
+        await updateUiWithRecentData();
     }).catch(() => {
         console.log('Could not post new data');
     });

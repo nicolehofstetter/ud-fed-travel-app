@@ -25,15 +25,18 @@ button {
   margin-top: 20px;
   background-color: #BBDEFB;
   width: 100vw;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
-
 }
+
+#nextTripContainer.active {
+  display: flex;
+}
+
 
 #nextTrip {
   width: 95vw;
-
 }
 
 #nextTrip div img {
@@ -58,3 +61,4 @@ button {
     height: auto;
   }
 }
+
