@@ -5,14 +5,16 @@ function calculateDaysBetweenTwoDays(start, end) {
     return Math.round(period / (1000 * 60 * 60 * 24));
 }
 
+function isNotEmpty(lastTravelDate) {
+    return !(Object.keys(lastTravelDate).length === 0 && lastTravelDate.constructor === Object);
+}
+
 async function updateUiWithRecentData() {
     const response = await fetch('http://localhost:8081/api/travels/latest');
     try {
         const lastTravelDate = await response.json();
-        console.log(lastTravelDate);
-        if (!(Object.keys(lastTravelDate).length === 0 && lastTravelDate.constructor === Object)) {
 
-
+        if (isNotEmpty(lastTravelDate)) {
             document.getElementById('cityOutput').innerHTML = lastTravelDate.city;
             document.getElementById('country').innerHTML = lastTravelDate.country;
             document.getElementById('startOutput').innerHTML = lastTravelDate.startDate;

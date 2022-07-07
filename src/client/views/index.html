@@ -16,11 +16,11 @@
 
                 <form id="travelDataForm" onsubmit="return Client.saveNextTrip(event)">
                     <label for="city">The next trip is here:</label>
-                    <input type="text" id="city" value="Ingolstadt"/>
+                    <input type="text" id="city" placeholder="Ingolstadt"/>
                     <label for="travelStartDate">Departure:</label>
-                    <input type="date" id="travelStartDate" value="2023-02-01"/>
+                    <input type="date" id="travelStartDate" placeholder="dd.MM.yyyy"/>
                     <label for="travelEndDate">Return date:</label>
-                    <input type="date" id="travelEndDate" value="2023-02-12"/>
+                    <input type="date" id="travelEndDate" placeholder="dd.MM.yyyy"/>
                     <input type="submit" id="saveTravelData" onsubmit="return Client.saveNextTrip(event)"
                            onclick="return Client.saveNextTrip(event)" value="Save next trip!"/>
                 </form>
@@ -28,8 +28,8 @@
 
             <div id="nextTripContainer">
                 <section id="nextTrip">
-                    <h2>Your next Trip:</h2>
-                    <img id="cityImage" src="some-dummy-url" alt="image of a city"/>
+                    <h2>Your next trip is:</h2>
+                    <img id="cityImage" src="" alt="image of a city"/>
                     <p><span id="cityOutput"></span>, <span id="country"></span> is
                         <span id="countDown"></span> days away
                     </p>
@@ -40,7 +40,7 @@
                         <p>
                             Enjoy <span id="travelLength"> </span> days of vacation :)
                         </p>
-                        <p>Temperature: <span id="temperatureOutput"></span></p>
+                        <p>Current temperature is: <span id="temperatureOutput"></span></p>
                     </div>
                 </section>
             </div>

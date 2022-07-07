@@ -37,8 +37,7 @@ async function saveNextTrip(event) {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(coordinates)
-    }).then(async (response) => {
-        console.log(response);
+    }).then(async () => {
         await updateUiWithRecentData();
     }).catch(() => {
         console.log('Could not post new data');

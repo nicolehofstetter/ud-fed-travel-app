@@ -6,6 +6,7 @@
 
 #tripInput {
   width: 95vw;
+  margin-bottom: 20px;
 }
 
 #travelDataForm {
@@ -22,7 +23,6 @@ button {
 }
 
 #nextTripContainer {
-  margin-top: 20px;
   background-color: #BBDEFB;
   width: 100vw;
   display: none;
@@ -39,7 +39,7 @@ button {
   width: 95vw;
 }
 
-#nextTrip div img {
+#nextTrip img {
   width: 95vw;
   height: auto;
 }
@@ -56,7 +56,7 @@ button {
   #nextTrip {
     width: 50vw;
   }
-  #nextTrip div img {
+  #nextTrip img {
     width: 50vw;
     height: auto;
   }
