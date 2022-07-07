@@ -1,5 +1,6 @@
 import {updateUiWithRecentData} from './updateUi';
 
+// This method fetches the coordinates of given city using the geonames api
 async function getCoordinatesByCity(city) {
     const username = 'nicolehof';
     let url = 'http://api.geonames.org/searchJSON?username=' + username + '&formatted=true&q=' + city;
@@ -12,6 +13,9 @@ async function getCoordinatesByCity(city) {
     }
 }
 
+// This method posts the details of the next trip to the server.
+// It includes input data of the user: city, startDate and endDate
+// and combines it with the coordinates and country given from the geonames api
 async function saveNextTrip(event) {
     event.preventDefault();
 
