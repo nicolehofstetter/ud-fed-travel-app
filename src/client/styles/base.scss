@@ -37,8 +37,13 @@ footer {
   grid-area: footer;
 }
 
-button {
+#saveTravelData {
   background-color: $primary-color-dark;
   padding: 10px;
   border-radius: 10px;
+  color: #FFFFFF;
+}
+
+#saveTravelData:hover {
+  background-color: $primary-color;
 }
