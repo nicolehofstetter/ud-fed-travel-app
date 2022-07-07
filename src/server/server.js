@@ -81,3 +81,5 @@ app.post('/api/travels/latest', function (req, res) {
 app.get('/api/travels/latest', function (req, res) {
     res.send(lastTravelData);
 });
+
+module.exports = app;
